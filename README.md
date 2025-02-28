@@ -76,7 +76,7 @@ This will:
 To use this script with a Kubernetes deployment, apply the following configuration:
 
 ```
-kubectl apply -f nodejs-deployment.yaml
+kubectl apply -f example-deploymenta.yaml
 ```
 
 
@@ -107,7 +107,7 @@ Then, use the script to connect to the running pods:
 
 1. Deploy example k8s web with two pods
    ```sh
-   kubectl apply -f nodejs-deployment.yaml
+   kubectl apply -f example-deployment.yaml
    ```
    It will deploy 3 example nodejs pods in namespace `web`. Two of them have label `part=first` and one of them has label `part=second`.
 
