@@ -76,7 +76,7 @@ This will:
 To use this script with a Kubernetes deployment, apply the following configuration:
 
 ```
-kubectl apply -f example-deploymenta.yaml
+kubectl apply -f example-deployment.yaml
 ```
 
 
