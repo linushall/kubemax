@@ -42,7 +42,8 @@ which tmux
 2. **Make the script executable:**
 
    ```sh
-   chmod +x k8s-tmux.sh
+   chmod +x k8s-tmux-by-label.sh
+   chmod +x k8s-tmux-by-namespace.sh
    ```
 
 ---
