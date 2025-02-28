@@ -112,6 +112,10 @@ Then, use the script to connect to the running pods:
 3. Interact with the pods inside **tmux**.
 4. Detach from tmux when needed (`Ctrl + B`, then `D`) or (`Ctrl + d`).
 5. Exit all pods (`Ctrl + d` or `exit` in each pane) to **auto-close the session**.
+6. Delete the deployment
+   ```sh
+   kubectl delete deployment my-app
+   ```
 
 ---
 
