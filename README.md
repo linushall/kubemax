@@ -99,7 +99,7 @@ Then, use the script to connect to the running pods:
 | **Disable sync input**  | `Ctrl + b`, then `:` → `setw synchronize-panes off` |
 | **Show pane number**    | `Ctrl + b + q`                                      |
 | **Select pane**         | `Ctrl + b + q + <number>`                           |
-| **Enable sync input**   | `Ctrl + B`, then `:` → `setw synchronize-panes on`  |
+| **Enable sync input**   | `Ctrl + b`, then `:` → `setw synchronize-panes on`  |
 
 ---
 
