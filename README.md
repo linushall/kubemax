@@ -53,13 +53,13 @@ which tmux
 Run the script with the desired Kubernetes namespace:
 
 ```sh
-./k8s-tmux.sh <namespace>
+./k8s-tmux-by-namespace.sh <namespace>
 ```
 
 Example:
 
 ```sh
-./k8s-tmux.sh web
+./k8s-tmux-by-namespace.sh web
 ```
 
 This will:
@@ -83,7 +83,7 @@ kubectl apply -f nodejs-deployment.yaml
 Then, use the script to connect to the running pods:
 
 ```sh
-./k8s-tmux.sh web
+./k8s-tmux-by-namespace.sh web
 ```
 
 ---
