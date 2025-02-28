@@ -163,17 +163,18 @@ brew install tmux       # macOS
 sudo dnf install tmux   # Fedora
 ```
 
-### 3️⃣ "Sessions should be nested with care, unset \$TMUX to force"
-
-✅ You're trying to run `tmux` **inside another tmux session**.
-
-- **Option 1:** Detach first (`Ctrl + B`, then `D`) and rerun the script.
-- **Option 2:** Run:
-  ```sh
-  unset TMUX && ./k8s-tmux.sh web
-  ```
-
 ---
+
+## Create symlinks
+To be able to call that command from any place in your OS you can create the symlink this way:
+
+```sh
+sudo ln -s /...path-to-your-folder/k8s-tmux-by-namespace.sh /usr/local/bin/k8s-tmux-by-namespace
+sudo ln -s /...path-to-your-folder/k8s-tmux-by-label.sh /usr/local/bin/k8s-tmux-by-label`
+```
+
+And then you are able to execute those commands from any place in your system and without `.sh` suffix.
+
 
 ## 📜 License
 
