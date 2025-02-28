@@ -89,13 +89,16 @@ Then, use the script to connect to the running pods:
 
 ## 🔧 Controls & Shortcuts
 
-| Action                 | Shortcut                                            |
-| ---------------------- | --------------------------------------------------- |
-| **Detach from tmux**   | `Ctrl + B`, then `D`                                |
-| **Kill session**       | `Ctrl + D` in all panes                             |
-| **Reattach session**   | `tmux attach -t k8s-<namespace>`                    |
-| **Exit all pods**      | `exit` in each pane or `Ctrl + D`                   |
-| **Disable sync input** | `Ctrl + B`, then `:` → `setw synchronize-panes off` |
+| Action                  | Shortcut                                            |
+|-------------------------|-----------------------------------------------------|
+| **Detach from tmux**    | `Ctrl + b`, then `d`                                |
+| **Kill session**        | `Ctrl + d` in all panes                             |
+| **List sessions**       | `tmux ls`                                           |
+| **Disconnect all pods** | `exit` in each pane or `Ctrl + d`                   |
+| **Disable sync input**  | `Ctrl + b`, then `:` → `setw synchronize-panes off` |
+| **Show pane number**    | `Ctrl + b + q`                                      |
+| **Select pane**         | `Ctrl + q + <number>`                               |
+| **Enable sync input**   | `Ctrl + B`, then `:` → `setw synchronize-panes on`  |
 
 ---
 
