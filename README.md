@@ -79,6 +79,11 @@ To use this script with a Kubernetes deployment, apply the following configurati
 kubectl apply -f example-deployment.yaml
 ```
 
+Then, show the result:
+
+```
+kubectl get all -n web
+```
 
 Then, use the script to connect to the running pods:
 
