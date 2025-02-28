@@ -7,10 +7,11 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-deployment
+  name: nodejs-deployment-part1
   namespace: web
   labels:
     app: nodejs
+    part: first
 spec:
   replicas: 2  # Deploys 2 Node.js pods
   selector:
@@ -20,6 +21,35 @@ spec:
     metadata:
       labels:
         app: nodejs
+        part: first
+    spec:
+      containers:
+        - name: nodejs
+          image: node:latest  # Using the latest Node.js official image
+          ports:
+            - containerPort: 3000  # Default Node.js app port
+          command: ["node"]
+          args: ["-e", "require('http').createServer((req, res) => res.end('Hello from Node.js!')).listen(3000)"]
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-deployment-part2
+  namespace: web
+  labels:
+    app: nodejs
+    part: second
+spec:
+  replicas: 1  # Deploys 1 Node.js pods
+  selector:
+    matchLabels:
+      app: nodejs
+  template:
+    metadata:
+      labels:
+        app: nodejs
+        part: second
     spec:
       containers:
         - name: nodejs
@@ -37,7 +67,7 @@ metadata:
   namespace: web
 spec:
   selector:
-    app: nodejs
+    app: nodejs-part2
   type: LoadBalancer
   ports:
     - protocol: TCP

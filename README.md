@@ -108,10 +108,30 @@ Then, use the script to connect to the running pods:
    ```sh
    kubectl apply -f nodejs-deployment.yaml
    ```
-2. Run the script:
+   It will deploy 3 example nodejs pods in namespace `web`. Two of them have label `part=first` and one of them has label `part=second`.
+
+### Multi-Pod Exec with tmux for all pods in namespace
+
+1. Run the command:
    ```sh
-   ./k8s-tmux.sh web
+   ./k8s-tmux-by-namespace.sh web
    ```
+   To start tmux sync session for all pods in namespace `web`
+2. Interact with the pods inside **tmux**.
+3. Detach from tmux when needed (`Ctrl + B`, then `D`) or (`Ctrl + d`).
+4. Exit all pods (`Ctrl + d` or `exit` in each pane) to **auto-close the session**.
+5. Delete the deployment
+   ```sh
+   kubectl delete deployment my-app
+   ```
+
+### Multi-Pod Exec with tmux for all pods with particular label
+
+1. Run the command:
+   ```sh
+   ./k8s-tmux-by-label.sh part=first
+   ```
+   To start tmux sync session for all pods in namespace `web`
 3. Interact with the pods inside **tmux**.
 4. Detach from tmux when needed (`Ctrl + B`, then `D`) or (`Ctrl + d`).
 5. Exit all pods (`Ctrl + d` or `exit` in each pane) to **auto-close the session**.
@@ -119,7 +139,6 @@ Then, use the script to connect to the running pods:
    ```sh
    kubectl delete deployment my-app
    ```
-
 ---
 
 ## 🛠 Troubleshooting
@@ -169,7 +188,7 @@ Pull requests are welcome! If you find a bug or have an idea for improvement, fe
 
 ## 📬 Contact
 
-For questions or suggestions, reach out via GitHub Issues or email: [**your-email@example.com**](mailto\:your-email@example.com)
+For questions or suggestions, reach out via GitHub Issues or email: [**ask.linushall@gmail.com**](mailto\:ask.linushall@gmail.com)
 
 ---
 
