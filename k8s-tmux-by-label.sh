@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x;
-
 # Get the namespace from the first script argument
 LABEL=$1
 
@@ -52,5 +50,3 @@ tmux set synchronize-panes on
 
 # Attach to the tmux session so the user can interact with the pods
 tmux attach-session -t $SESSION_NAME
-
-set +x;
