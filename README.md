@@ -35,15 +35,14 @@ which tmux
 1. **Clone the repository** (or download the script directly):
 
    ```sh
-   git clone https://github.com/linushall/k8s-tmux.git
-   cd k8s-tmux
+   git clone https://github.com/linushall/kubemux.git
+   cd kubemux
    ```
 
 2. **Make the script executable:**
 
    ```sh
-   chmod +x k8s-tmux-by-label.sh
-   chmod +x k8s-tmux-by-namespace.sh
+   chmod +x kubemax.sh
    ```
 
 ---
@@ -53,13 +52,13 @@ which tmux
 Run the script with the desired Kubernetes namespace:
 
 ```sh
-./k8s-tmux-by-namespace.sh <namespace>
+./kubemax.sh -n <namespace>
 ```
 
 Example:
 
 ```sh
-./k8s-tmux-by-namespace.sh web
+./kubemax.sh -n web
 ```
 
 This will:
@@ -75,20 +74,20 @@ This will:
 
 To use this script with a Kubernetes deployment, apply the following configuration:
 
-```
-kubectl apply -f example-deployment.yaml
+```sh
+kubectl apply -f ./example/deployment.yaml
 ```
 
 Then, show the result:
 
-```
+```sh
 kubectl get all -n web
 ```
 
 Then, use the script to connect to the running pods:
 
 ```sh
-./k8s-tmux-by-namespace.sh web
+./kubemax.sh -n web
 ```
 
 ---
@@ -112,7 +111,7 @@ Then, use the script to connect to the running pods:
 
 1. Deploy example k8s web with two pods
    ```sh
-   kubectl apply -f example-deployment.yaml
+   kubectl apply -f ./example/deployment.yaml
    ```
    It will deploy 3 example nodejs pods in namespace `web`. Two of them have label `part=first` and one of them has label `part=second`.
 
@@ -120,7 +119,7 @@ Then, use the script to connect to the running pods:
 
 1. Run the command:
    ```sh
-   ./k8s-tmux-by-namespace.sh web
+   ./kubemax.sh -n web
    ```
    To start tmux sync session for all pods in namespace `web`
 2. Interact with the pods inside **tmux**.
@@ -135,7 +134,7 @@ Then, use the script to connect to the running pods:
 
 1. Run the command:
    ```sh
-   ./k8s-tmux-by-label.sh part=first
+   ./kubemax.sh -l part=first
    ```
    To start tmux sync session for all pods in namespace `web`
 3. Interact with the pods inside **tmux**.
@@ -174,8 +173,7 @@ sudo dnf install tmux   # Fedora
 To be able to call that command from any place in your OS you can create the symlink this way:
 
 ```sh
-sudo ln -s /...path-to-your-folder/k8s-tmux-by-namespace.sh /usr/local/bin/k8s-tmux-by-namespace
-sudo ln -s /...path-to-your-folder/k8s-tmux-by-label.sh /usr/local/bin/k8s-tmux-by-label`
+sudo ln -s /...path-to-your-folder/kubemax.sh /usr/local/bin/kubemax
 ```
 
 And then you are able to execute those commands from any place in your system and without `.sh` suffix.
