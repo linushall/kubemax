@@ -32,6 +32,15 @@ which tmux
 
 ## 📜 Installation
 
+### Homebrew
+
+```sh
+brew tap --force-auto-update linushall/kubemax
+brew install kubemax
+```
+
+### Manually
+
 1. **Clone the repository** (or download the script directly):
 
    ```sh
@@ -45,6 +54,12 @@ which tmux
    chmod +x kubemax.sh
    ```
 
+3. **Create symlink**
+
+   ```sh
+   sudo ln -s "$(pwd)/kubemax.sh" /usr/local/bin/kubemax
+   ```
+
 ---
 
 ## 🛠 Usage
@@ -52,19 +67,44 @@ which tmux
 Run the script with the desired Kubernetes namespace:
 
 ```sh
-./kubemax.sh -n <namespace>
+./kubemax -n <namespace>
 ```
 
-Example:
+or 
 
 ```sh
-./kubemax.sh -n web
+./kubemax -l <label>
+```
+
+or
+
+```sh
+./kubemax -n <namespace> -l <label>
+```
+
+### 1st example:
+
+```sh
+./kubemax -n web
 ```
 
 This will:
 
-- Open a **new tmux session** named `k8s-web`
+- Open a **new tmux session** named `kubemax-web`
 - Execute into all pods within the `web` namespace
+- Tile all tmux panes for better visibility
+- Enable **synchronized input** across all panes
+
+### 2nd example:
+
+```sh
+./kubemax -n web -l part=first
+```
+
+This will:
+
+- Open a **new tmux session** named `kubemax-web`
+- Execute into all pods within the `web` namespace and label `part: first`
 - Tile all tmux panes for better visibility
 - Enable **synchronized input** across all panes
 
@@ -119,16 +159,12 @@ Then, use the script to connect to the running pods:
 
 1. Run the command:
    ```sh
-   ./kubemax.sh -n web
+   ./kubemax -n web
    ```
    To start tmux sync session for all pods in namespace `web`
 2. Interact with the pods inside **tmux**.
 3. Detach from tmux when needed (`Ctrl + B`, then `D`) or (`Ctrl + d`).
 4. Exit all pods (`Ctrl + d` or `exit` in each pane) to **auto-close the session**.
-5. Delete the deployment
-   ```sh
-   kubectl delete deployment my-app
-   ```
 
 ### Multi-Pod Exec with tmux for all pods with particular label
 
@@ -140,10 +176,7 @@ Then, use the script to connect to the running pods:
 3. Interact with the pods inside **tmux**.
 4. Detach from tmux when needed (`Ctrl + B`, then `D`) or (`Ctrl + d`).
 5. Exit all pods (`Ctrl + d` or `exit` in each pane) to **auto-close the session**.
-6. Delete the deployment
-   ```sh
-   kubectl delete deployment my-app
-   ```
+
 ---
 
 ## 🛠 Troubleshooting
@@ -169,16 +202,6 @@ sudo dnf install tmux   # Fedora
 
 ---
 
-## Create symlinks
-To be able to call that command from any place in your OS you can create the symlink this way:
-
-```sh
-sudo ln -s /...path-to-your-folder/kubemax.sh /usr/local/bin/kubemax
-```
-
-And then you are able to execute those commands from any place in your system and without `.sh` suffix.
-
-
 ## 📜 License
 
 This project is licensed under the **MIT License**. Feel free to modify and use it as needed!
@@ -197,5 +220,5 @@ For questions or suggestions, reach out via GitHub Issues or email: [**ask.linus
 
 ---
 
-🚀 Happy Kubernetes managing with tmux! 🎉
+🚀 Happy Kubernetes managing with kubemax! 🎉
 

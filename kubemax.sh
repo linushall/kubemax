@@ -21,7 +21,7 @@ else
 fi
 
 # Define a tmux session name
-SESSION_NAME="k8s-$NAMESPACE"
+SESSION_NAME="kubemax-$NAMESPACE"
 
 # Start a new tmux session in detached mode
 tmux new-session -d -s "$SESSION_NAME"
