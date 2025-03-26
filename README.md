@@ -25,6 +25,9 @@ To check if they are installed, run:
 
 ```sh
 kubectl version --client
+```
+
+```sh
 which tmux
 ```
 
@@ -36,6 +39,9 @@ which tmux
 
 ```sh
 brew tap --force-auto-update linushall/kubemax
+```
+
+```sh
 brew install kubemax
 ```
 
@@ -45,6 +51,9 @@ brew install kubemax
 
    ```sh
    git clone https://github.com/linushall/kubemux.git
+   ```
+   
+   ```sh
    cd kubemux
    ```
 
