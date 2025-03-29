@@ -119,28 +119,6 @@ This will:
 
 ---
 
-## 📌 Example Deployment File
-
-To use this script with a Kubernetes deployment, apply the following configuration:
-
-```sh
-kubectl apply -f ./example/deployment.yaml
-```
-
-Then, show the result:
-
-```sh
-kubectl get all -n web
-```
-
-Then, use the script to connect to the running pods:
-
-```sh
-./kubemax.sh -n web
-```
-
----
-
 ## 🔧 Controls & Shortcuts
 
 | Action                  | Shortcut                                            |
@@ -153,38 +131,6 @@ Then, use the script to connect to the running pods:
 | **Show pane number**    | `Ctrl + b + q`                                      |
 | **Select pane**         | `Ctrl + b + q + <number>`                           |
 | **Enable sync input**   | `Ctrl + b`, then `:` → `setw synchronize-panes on`  |
-
----
-
-## 🔥 Example Workflow
-
-1. Deploy example k8s web with two pods
-   ```sh
-   kubectl apply -f ./example/deployment.yaml
-   ```
-   It will deploy 3 example nodejs pods in namespace `web`. Two of them have label `part=first` and one of them has label `part=second`.
-
-### Multi-Pod Exec with tmux for all pods in namespace
-
-1. Run the command:
-   ```sh
-   ./kubemax -n web
-   ```
-   To start tmux sync session for all pods in namespace `web`
-2. Interact with the pods inside **tmux**.
-3. Detach from tmux when needed (`Ctrl + B`, then `D`) or (`Ctrl + d`).
-4. Exit all pods (`Ctrl + d` or `exit` in each pane) to **auto-close the session**.
-
-### Multi-Pod Exec with tmux for all pods with particular label
-
-1. Run the command:
-   ```sh
-   ./kubemax.sh -l part=first
-   ```
-   To start tmux sync session for all pods in namespace `web`
-3. Interact with the pods inside **tmux**.
-4. Detach from tmux when needed (`Ctrl + B`, then `D`) or (`Ctrl + d`).
-5. Exit all pods (`Ctrl + d` or `exit` in each pane) to **auto-close the session**.
 
 ---
 
